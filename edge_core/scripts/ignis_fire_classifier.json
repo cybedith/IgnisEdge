@@ -1,0 +1,25 @@
+{
+  "features": [
+    "flicker_peak_C"
+  ],
+  "threshold": 0.4,
+  "flicker_floor": 10.0,
+  "oof_recall": 0.9758117236870778,
+  "oof_fp_rate": 0.037408759124087594,
+  "oof_precision": 0.8653140096618358,
+  "n_train": 23221,
+  "sessions": [
+    "horno",
+    "persona",
+    "vela_con_horno_bg",
+    "vela_con_horno_hotstatic",
+    "vela_fondofrio",
+    "vela_fondofrio_bg",
+    "vela_fondotibio",
+    "vela_fondotibio_bg",
+    "velas_multiples",
+    "velas_multiples_bg"
+  ],
+  "flame_included": false,
+  "note": "fuego = (flicker_peak_C >= flicker_floor) AND (prob >= threshold). Features en el MISMO orden que 'features'."
+}

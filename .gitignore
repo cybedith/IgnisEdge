@@ -1,0 +1,12 @@
+venv/
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.env
+.env.local
+credenciales.json
+models/
+dataset*/
+capturas/
+.DS_Store
