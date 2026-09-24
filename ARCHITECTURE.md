@@ -19,5 +19,7 @@ Procesar matrices de 16-bits radiométricos y modelos de Machine Learning (YOLO/
 
 ## 4. Comunicaciones: Doctrina "Cero WiFi en Campo"
 Para misiones forestales remotas, la cobertura celular o WiFi es inexistente o poco confiable.
-* **Decisión:** Toda la red de sensores (Swarm Terrestre) y el dron están vinculados mediante telemetría LoRa (915MHz / 433MHz) conectada directamente al puerto serial (`/dev/ttyACM1` vía módem Heltec). El protocolo MAVLink y los `AlertNodeMessage` transitan íntegramente por este enlace físico de ultra-largo alcance.
+* **Decisión:** El sistema emplea una arquitectura de Radiofrecuencia de doble banda para asegurar supervivencia total sin internet:
+   - **Banda 915 MHz (LoRa):** Comunica los nodos terrestres BME688 con el módulo Heltec a bordo del dron (`/dev/ttyACM1`), disparando las misiones de forma descentralizada.
+   - **Banda 433 MHz (SiK Telemetry):** Provee el enlace bidireccional MAVLink de ultra-largo alcance entre el Pixhawk del dron y la estación base de PC (C2).
 * **El Rol del WiFi/C2:** La conexión HTTP al servidor FastAPI / React (Dashboard) es estrictamente una capa de monitoreo *Comando y Control (C2)*. Si se pierde la conexión WiFi o la pantalla de React colapsa, la FSM en el Edge continúa operando el dron autónomamente basándose en sus lecturas LoRa locales.
